@@ -13,7 +13,7 @@ before_install:
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project mult-k8s-101
   - gcloud config set compute/zone us-central1-a
-  - gcloud cotainer clusters get-credentials multi-cluster
+  - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" -password-stdin
   - docker build -t developerrohitkhatri/multi-client:dev -f ./client/Dockerfile.dev ./client
 script:
