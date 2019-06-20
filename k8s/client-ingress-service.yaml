@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: client-ingress-service
+  annotations:
+    kubenetes.io/ingress.class: nginx
+    kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: client-cluster-ip-service
+              servicePort: 3000
